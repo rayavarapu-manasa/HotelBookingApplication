@@ -1,0 +1,109 @@
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    .d-flex.align-items-center.justify-content-between {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .d-flex.gap-4 {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .nav-last {
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .nav-last a {
+      font-size: 14px;
+    }
+  
+    .d-flex.align-items-center.border.rounded-pill.shadow-sm {
+      flex-direction: column;
+      height: auto;
+      padding: 15px;
+    }
+  
+    .text-center.me-4 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+  
+  /* Mobile (480px and below) */
+  @media (max-width: 480px) {
+    .container-fluid {
+      padding: 5px 10px;
+    }
+  
+    .d-flex.align-items-center.justify-content-between {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .d-flex.gap-4 {
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+  
+    .nav-last {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .nav-last a {
+      font-size: 12px;
+    }
+  
+    .d-flex.align-items-center.border.rounded-pill.shadow-sm {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .text-center.me-4 {
+      width: 100%;
+      text-align: center;
+      border: none;
+      padding: 5px 0;
+    }
+  
+    .btn.text-white.fw-bold.py-2 {
+      width: 100%;
+    }
+  }
+  
+  /* Card Component Responsive Styles */
+  @media (max-width: 992px) {
+    .col-lg-4 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .col-lg-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card {
+      margin-bottom: 20px;
+    }
+    .card-img-top {
+      height: 180px;
+    }
+    .btn-outline-primary {
+      width: 100%;
+    }
+  }

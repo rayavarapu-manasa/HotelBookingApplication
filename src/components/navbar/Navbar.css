@@ -1,0 +1,27 @@
+.no-focus-border {
+    border: 0;
+    outline: 0;
+}
+.popover {
+    z-index: 1050; /* Ensure the popover is above other elements */
+    max-width: 300px; /* Adjust width if necessary */
+    border-radius: 10px;
+  }
+  
+  .popover .popover-body {
+    padding: 0.5rem;
+  }
+  /* Make the navbar fixed at the top */
+header.container-fluid {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
+
+/* Adjust body content to prevent overlapping */
+body {
+  padding-top: 0; /* Add padding equivalent to the Navbar's height */
+}
+

@@ -1,0 +1,90 @@
+.airbnb-btn{
+  background-color:#ff385c;
+  width:100%;
+  border: none;
+  
+
+}
+.cardview{
+  display: flex;
+  justify-content:space-between;
+  width:40%;
+  margin-right: 10px;
+}
+.select-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.select-dates p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+.select-dates strong {
+  font-weight: bold;
+}
+
+.airbnb-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.airbnb-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-image {
+  height: 120px;
+  width: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.hotel-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
+}
+
+.hotel-description {
+  font-size: 0.9rem;
+  color: #555555;
+  margin-top: 5px;
+}
+
+.price-summary p,
+.price-summary span {
+  font-size: 1rem;
+  color: #333333;
+}
+
+.price-summary p {
+  margin: 0;
+}
+
+.price-summary span {
+  font-weight: 600;
+}
+
+.price-summary hr {
+  border: 0;
+  border-top: 1px solid #eaeaea;
+  margin: 15px 0;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body .fw-bold {
+  font-weight: 700;
+  color: #333333;
+}

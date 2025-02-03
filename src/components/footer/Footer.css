@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+  }
+  
+  .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  /* Ensure body content scrolls without overlapping footer */
+  main {
+    flex: 1;
+    overflow-y: auto;
+  }
+  

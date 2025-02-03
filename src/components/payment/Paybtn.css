@@ -1,0 +1,51 @@
+.razorpay-container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    }
+    
+    /* Input group styling */
+    .input-group {
+    margin: 10px 0;
+    }
+    
+    .input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    }
+    
+    .input-group input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+    
+    /* Button styling */
+    .razorpay-button {
+    padding: 10px 20px;
+    background-color: #ff385c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    
+    .razorpay-button:hover {
+    background-color: #e63950;
+    }
+    
+    /* Success message styling */
+    .razorpay-success {
+    margin-top: 20px;
+    }
+    
+    .razorpay-success h3 {
+    color: #28a745; /* Green for success */
+    }
+    
+    .razorpay-success p {
+    color: #333;
+    }

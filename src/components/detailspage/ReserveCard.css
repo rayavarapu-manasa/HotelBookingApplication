@@ -1,0 +1,151 @@
+.airbnb-card {
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+    color: #222;
+    background-color: #fff;
+  }
+  
+  .price-per-night {
+    padding: 16px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ff5a5f;
+    border-bottom: 1px solid #e4e4e4;
+  }
+  
+  .dates,
+  .guests {
+    padding: 16px;
+    
+  }
+  
+  .dates div,
+  .guests {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .dates span,
+  .guests span {
+    font-weight: 500;
+  }
+  
+  .reserve-button {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 16px auto;
+    padding: 12px;
+    background-color: #ff5a5f;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 5600;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .reserve-button:hover {
+    background-color: #e04848;
+  }
+  
+  .price-details {
+    padding: 15px;
+    
+  }
+  
+  .price-details p {
+    font-size: 0.9rem;
+    color: #717171;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .price-breakdown {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+  
+  .total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-top: 1px solid #e4e4e4;
+  }
+  .total span{
+    margin-top: 10px;
+  }
+  /* Styling for the selected dates section */
+.selected-dates {
+  display: flex;
+  justify-content:space-around;
+  gap: 10px; /* Adds space between the two date fields */
+  margin-top: 10px;
+}
+
+/* Styling for each date input container */
+.selected-dates div {
+  width: 40%; /* Ensures both date inputs are side by side but take up almost equal width */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for the label */
+.selected-dates label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px; /* Adds space between the label and the input */
+}
+
+/* Styling for the input fields */
+.selected-dates input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9; /* Light background to make the input fields stand out */
+  transition: border-color 0.3s ease;
+}
+
+/* Styling for the input fields on focus */
+.selected-dates input:focus {
+  border-color: #FF5A5F; /* Highlight border color when focused */
+  outline: none;
+}
+
+/* Responsive styling for smaller screens */
+
+.guests {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Airbnb Cereal App', Arial, sans-serif;
+  margin-bottom: 16px;
+}
+
+.guests-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px; 
+}
+
+.guests-input {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+} 

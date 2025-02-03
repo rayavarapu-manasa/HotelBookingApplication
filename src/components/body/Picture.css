@@ -1,0 +1,27 @@
+.picture-container {
+  height: 57vh; /* Make the container fill the viewport */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* Hide overflowed images */
+
+}
+
+/* Style each image with animation */
+.picture {
+ 
+  width: 90%; /* Make the images fill the width of the container */
+  height: 100%; /* Make each image take full screen height */
+  /* object-fit:contain; Ensure images cover the container without distortion */
+  position: absolute; /* Position images on top of each other */
+  opacity: 0; /* Initially hide both images */
+  transition: opacity 1s ease-in-out; /* Smooth transition */
+
+}
+
+/* When an image is visible */
+.picture.visible {
+  opacity: 1; /* Make the image visible */
+}
