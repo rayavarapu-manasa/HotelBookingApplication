@@ -10,6 +10,7 @@ function Footer() {
   return (
     <footer className="footer bg-light text-dark border-top">
       <div className="container">
+      
         <div className="row align-items-center">
           {/* Left Section */}
           <div className="col-md-6 d-flex flex-column flex-md-row align-items-md-center gap-3">

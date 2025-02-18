@@ -5,13 +5,25 @@ import myFirstContext from '../context/SearchContext';
 import { useContext } from 'react';
 
 function ReserveCard({ pricePerNight, hotel }) {
-  const { searchData, setSearchData } = useContext(myFirstContext); 
+  const { searchData, setSearchData } = useContext(myFirstContext);
   const locationData = useLocation();
   const navigateReserve = useNavigate();
   const { state } = locationData || {};
   const { checkin, checkout, guestSummary } = state || {};
-  const [startDate, setStartDate] = useState(searchData.checkin || '1/31/2025');
-  const [endDate, setEndDate] = useState(searchData.checkout || '2/5/2025');
+  // const [startDate, setStartDate] = useState(searchData.checkin || '1/31/2025');
+  // const [endDate, setEndDate] = useState(searchData.checkout || '2/5/2025');
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+
+  console.log(searchData.checkin, checkin, today.toISOString().split("T")[0]);
+
+
+  const defaultCheckin = searchData.checkin || checkin || today.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+  const defaultCheckout = searchData.checkout || checkout || new Date(tomorrow).toISOString().split("T")[0];
+
+  const [startDate, setStartDate] = useState(defaultCheckin);
+  const [endDate, setEndDate] = useState(defaultCheckout);
   const [guests, setGuests] = useState(searchData.guestSummary || 1);
 
   // Function to calculate total price
@@ -21,14 +33,14 @@ function ReserveCard({ pricePerNight, hotel }) {
     const serviceFee = basePrice * 0.2;
     return basePrice + serviceFee;
   };
-   const totalCost = calculateTotal();
+  const totalCost = calculateTotal();
 
   const calculateServiceFee = () => {
     const nights = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
     const basePrice = nights * pricePerNight;
     return basePrice * 0.2; // 20% service fee
   };
-  const serviceFee=calculateServiceFee();
+  const serviceFee = calculateServiceFee();
 
   // Navigate to the booking page
   // const ChangeReserve = () => {
@@ -41,7 +53,7 @@ function ReserveCard({ pricePerNight, hotel }) {
     const basePrice = nights * pricePerNight;
     const serviceFee = basePrice * 0.2;
     const totalCost = basePrice + serviceFee;
-  
+
     setSearchData((prevData) => ({
       ...prevData,
       checkin: startDate,
@@ -51,13 +63,13 @@ function ReserveCard({ pricePerNight, hotel }) {
       serviceFee,
       totalCost,
     }));
-  
- 
+
+
     navigateReserve("/book", {
       state: { hotel, pricePerNight, checkin: startDate, checkout: endDate, guestSummary: guests },
     });
   };
-  
+
 
   return (
     <div className="airbnb-card">
@@ -87,18 +99,18 @@ function ReserveCard({ pricePerNight, hotel }) {
       </div>
 
       <div className="guests">
-      <label htmlFor="guestsInput" className="guests-label">
-        GUESTS
-      </label>
-      <input
-        id="guestsInput"
-        className="guests-input"
-        value={guests}
-        onChange={(e) => setGuests(e.target.value)}
-        readOnly
-      />
-    </div>
-    
+        <label htmlFor="guestsInput" className="guests-label">
+          GUESTS
+        </label>
+        <input
+          id="guestsInput"
+          className="guests-input"
+          value={guests}
+          onChange={(e) => setGuests(e.target.value)}
+          readOnly
+        />
+      </div>
+
 
 
       <button className="reserve-button" onClick={ChangeReserve}>Reserve</button>

@@ -19,6 +19,12 @@ import PersonalInfo from "./myprofile/account/PersonalInfo";
 import CustomerSupport from "./myprofile/customersupport/CustomerSupport";
 import LoginComp from "./components/navbar/LoginComp";
 import LoginSign from "./components/dropdown/LoginSign";
+import Home from "./yourHome/home/Home";
+import AboutYourself from "./yourHome/home/AboutYourself";
+import ConfirmAddress from "./yourHome/address/ConfirmAddress";
+import BasicDetails from "./yourHome/address/BasicDetails";
+import AddPhotos from "./yourHome/address/AddPhotos";
+import Review from "./yourHome/review/Review";
 
 function App() {
   const [searchData, setSearchData] = useState(() => {
@@ -68,6 +74,12 @@ function App() {
           
           <Route path="/login" element={<LoginComp />} />
           <Route path="/" element={<LoginSign/>}/>
+          <Route path="/yourHome" element={<Home/>}/>
+          <Route path="/aboutYourself" element={<AboutYourself/>}/>
+          <Route path="/confirmAddress" element={<ConfirmAddress/>}/>
+          <Route path="/basicDetails" element={<BasicDetails/>}/>
+          <Route path="/addPhotos" element={<AddPhotos/>}/>
+          <Route path="/review" element={<Review/>}/>
         </Routes>
       </myFirstContext.Provider>
       <Footer />

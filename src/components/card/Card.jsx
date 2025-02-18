@@ -10,6 +10,7 @@ const Card = () => {
   const { destination, checkin, checkout, guestSummary } = searchData;
   const navigateView = useNavigate();
   const [data, setData] = useState([]);
+ 
 
   useEffect(() => {
     axios
@@ -54,7 +55,7 @@ const Card = () => {
                       alt="Property"
                       style={{ height: "200px", objectFit: "cover" }}
                     />
-                    <div className="card-body">
+                    <div className="card-body d-flex flex-column">
                       <p className="text-muted fs-6 mb-1">
                         {city.cityName || "Unknown Location"}
                       </p>
@@ -67,7 +68,7 @@ const Card = () => {
                             (hotel.description.length > 50 ? "..." : "")
                           : "Enjoy a cozy stay at our place."}
                       </p>
-                      <div className="d-flex justify-content-between align-items-center">
+                      <div className=" mt-auto d-flex justify-content-between align-items-center">
                         <span className="text-dark fw-bold">
                           ₹{hotel.pricePerNight || "0"}{" "}
                           <span className="text-muted">/ night</span>

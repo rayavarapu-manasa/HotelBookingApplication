@@ -10,6 +10,7 @@ const ProfileNavbar = () => {
     localStorage.getItem("isSignedIn") === "true"
   );
   const [showModal, setShowModal] = useState(false);
+  const [showSupportPopup, setShowSupportPopup] = useState(false);
 
   useEffect(() => {
     setIsSignedIn(localStorage.getItem("isSignedIn") === "true");
@@ -48,7 +49,10 @@ const ProfileNavbar = () => {
               {isSignedIn ? (
                 <>
                   <li><a className="dropdown-item text-decoration-none" href="/trips">Trips</a></li>
-                  <li><a className="dropdown-item text-decoration-none" href="/customer-support">Customer Support</a></li>
+                  <li><a className="dropdown-item text-decoration-none" onClick={(e) => {
+                    e.preventDefault(); // Prevent navigation
+                    setShowSupportPopup(true); // Show Customer Support pop-up
+                  }}>Customer Support</a></li>
                   <li><a className="dropdown-item text-decoration-none" href="/account">Account</a></li>
                   <li><a className="dropdown-item text-decoration-none" onClick={handleLogout}>Logout</a></li>
                 </>
@@ -68,6 +72,51 @@ const ProfileNavbar = () => {
                 <LoginSign onLoginSuccess={handleLoginSuccess} />
               </Modal.Body>
             </Modal>
+            {/*Modal for Customer Support */}
+        {showSupportPopup && (
+          <div className="modal d-block bg-dark bg-opacity-50" tabIndex="-1">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content" style={{ minHeight: '400px' }}>
+                <div className="modal-header d-flex flex-column justify-content-between p-4">
+                  <div>
+                    <h5 className="modal-title mb-2">
+                      {isSignedIn ? (
+                        <>
+                          Hi <span className="fw-bold">Manasa</span>,
+                          <br />
+                          <hr className="my-2" />
+                          Please contact 1800-xxx-xxxx for any queries
+                        </>
+                      ) : (
+                        <>
+                          Hi, Need to get in touch?
+                          <br />
+                          <hr className="my-2" />
+                          Please contact 1800-xxx-xxxx for any queries
+                        </>
+                      )}
+                    </h5>
+                  </div>
+                  <button
+                    className="btn-close position-absolute top-0 end-0 mt-3 me-3"
+                    onClick={() => setShowSupportPopup(false)}
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body d-flex justify-content-center">
+                  <img
+                    src="https://img.targetbay.com/images/live/2023/03/22081159/customer-support.jpg"
+                    width="250px"
+                    height="250px"
+                    alt="Image Failed"
+                    className="rounded-circle"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        )}
           </div>
         </div>
       </div>

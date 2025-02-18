@@ -1,5 +1,11 @@
+.card-text {
+  min-height: 20px;  
+  max-height: 60px;  /* Keeps all descriptions equal */
+  overflow: hidden;   /* Hides overflowing text */
+  text-overflow: ellipsis; /* Adds "..." if text is too long */
+  white-space: nowrap; 
+}
 
-/* Tablets (768px and below) */
 @media (max-width: 768px) {
     .d-flex.align-items-center.justify-content-between {
       flex-direction: column;

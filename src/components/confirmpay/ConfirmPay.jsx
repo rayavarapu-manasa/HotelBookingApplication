@@ -12,11 +12,22 @@ const ConfirmPay = () => {
   const { searchData } = useContext(myFirstContext);
   const location = useLocation();
   const { hotel, pricePerNight, checkin, checkout, guestSummary } = location.state || {};
-  // if (!hotel) {
-  //   return <p className="text-center">No hotel data available.</p>;
-  // }
-  const [startDate, setStartDate] = useState(searchData.checkin || checkin || "01/01/2025");
-  const [endDate, setEndDate] = useState(searchData.checkout || checkout || "01/02/2025");
+ 
+
+  const today = dayjs().format("MM/DD/YYYY");
+  const tomorrow = dayjs().add(1, "day").format("MM/DD/YYYY");
+
+  const defaultCheckin = searchData.checkin ? dayjs(searchData.checkin).format("MM/DD/YYYY") :
+    checkin ? dayjs(checkin).format("MM/DD/YYYY") : today;
+
+  const defaultCheckout = searchData.checkout ? dayjs(searchData.checkout).format("MM/DD/YYYY") :
+    checkout ? dayjs(checkout).format("MM/DD/YYYY") : tomorrow;
+
+  const [startDate, setStartDate] = useState(defaultCheckin);
+  const [endDate, setEndDate] = useState(defaultCheckout);
+
+
+
   const [guests, setGuests] = useState(searchData.guestSummary || 1);
 
   const calculateNights = () => {
@@ -45,9 +56,7 @@ const ConfirmPay = () => {
     return basePrice * 0.2; // 20% service fee
   };
 
-  //Calendar modal and guest modal logic
-  // const [startDate, setStartDate] = useState(searchData.checkin || checkin || "01/01/2025");
-  // const [endDate, setEndDate] = useState(searchData.checkout || checkout || "01/02/2025");
+
   const [showCalendarModal, setShowCalendarModal] = useState(false);
   const [showGuestModal, setShowGuestModal] = useState(false);
 
@@ -56,6 +65,8 @@ const ConfirmPay = () => {
     setEndDate(dates[1].format("MM/DD/YYYY"));
     setShowCalendarModal(false);
   };
+
+
 
   return (
     <>

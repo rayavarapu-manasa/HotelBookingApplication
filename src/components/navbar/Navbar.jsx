@@ -9,6 +9,10 @@ import dayjs from "dayjs";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginSign from "../dropdown/LoginSign";
 import { Modal } from 'react-bootstrap';
+import HostingLink from "./HostingLink";
+import { Link } from "react-router-dom";
+import Popover from "react-bootstrap/Popover";
+import { motion } from "framer-motion";
 
 const Navbar = ({
   initialDestination = "",
@@ -19,6 +23,7 @@ const Navbar = ({
   const { searchData, setSearchData } = useContext(myFirstContext);
   const navigate = useNavigate();
   const [showSupportPopup, setShowSupportPopup] = useState(false);
+  const [showGuestBox, setShowGuestBox] = useState(false);
 
   // Retrieve login state from localStorage
   const [isSignedIn, setIsSignedIn] = useState(
@@ -120,13 +125,15 @@ const Navbar = ({
     <header className="container-fluid bg-light py-3 sticky-top">
       <div className="container">
         <div className="d-flex align-items-center justify-content-between mt-2">
-          <div>
+          <Link to="/" >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
               alt="Airbnb Logo"
               width="120"
             />
-          </div>
+          </Link>
+
+
           <div className="d-flex gap-4">
             <a href="/" className="text-dark text-decoration-none fw-bold">
               Stays
@@ -136,8 +143,8 @@ const Navbar = ({
             </a>
           </div>
           <div className="nav-last d-flex justify-content-between align-items-center px-4 py-2" style={{ backgroundColor: '#f8f9fa' }}>
-            <a href="/" className="text-dark text-decoration-none fw-bold">
-              Airbnb your home
+            <a href="/yourHome" className="text-dark text-decoration-none fw-bold">
+              <HostingLink />
             </a>
             <div className="dropdown">
               <button className="btn btn-link text-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -249,6 +256,7 @@ const Navbar = ({
               <div className="text-center me-4 border-end pe-3 d-flex flex-column align-items-start">
                 <CalenderInput value={dates} onChange={setDates} />
               </div>
+
               <div
                 className="text-center me-4 d-flex flex-column align-items-start position-relative"
                 style={{
@@ -275,6 +283,9 @@ const Navbar = ({
                   </button>
                 </OverlayTrigger>
               </div>
+
+
+
               <div>
                 <button
                   className="btn text-white fw-bold py-2"
